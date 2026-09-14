@@ -1,0 +1,80 @@
+{
+  "name": "json-stringify-stable-replacer",
+  "version": "0.0.0",
+  "description": "Stable JSON stringify.",
+  "homepage": "https://github.com/fisker/json-stringify-stable-replacer#readme",
+  "bugs": {
+    "url": "https://github.com/fisker/json-stringify-stable-replacer/issues"
+  },
+  "repository": "fisker/json-stringify-stable-replacer",
+  "funding": "https://github.com/fisker/json-stringify-stable-replacer?sponsor=1",
+  "license": "MIT",
+  "author": {
+    "name": "fisker Cheung",
+    "email": "lionkay@gmail.com",
+    "url": "https://www.fiskercheung.com/"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "./*": "./*"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "bench": "node benchmark/index.js",
+    "dist": "run-p \"dist:*\"",
+    "dist:npm": "release-it",
+    "fix": "run-p --continue-on-error \"fix:*\"",
+    "fix:eslint": "yarn lint:eslint --fix",
+    "fix:markdown": "yarn lint:markdown --fix",
+    "fix:package-json": "sort-package-json \"package.json\" \"packages/*/package.json\"",
+    "fix:prettier": "prettier . --write",
+    "lint": "run-p --continue-on-error \"lint:*\"",
+    "lint:eslint": "eslint .",
+    "lint:markdown": "markdownlint-cli2",
+    "lint:package-json": "yarn run fix:package-json --check",
+    "lint:prettier": "prettier . --check",
+    "release": "run-s fix test dist",
+    "test": "run-p \"test:*\"",
+    "test:js": "node --test",
+    "test-coverage": "c8 yarn test"
+  },
+  "c8": {
+    "include": [
+      "index.js"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  },
+  "devDependencies": {
+    "@fisker/eslint-config": "16.1.1",
+    "@fisker/lint-staged-config": "4.0.1",
+    "@fisker/markdownlint-cli2-config": "0.1.0",
+    "@fisker/prettier-config": "6.0.1",
+    "@fisker/release-it-config": "6.0.2",
+    "c8": "12.0.0",
+    "eslint": "10.10.0",
+    "fast-json-stable-stringify": "2.1.0",
+    "json-sorted-stringify": "1.0.2",
+    "markdownlint-cli2": "0.23.2",
+    "npm-run-all2": "9.0.3",
+    "prettier": "3.9.6",
+    "release-it": "21.0.3",
+    "sort-package-json": "4.0.0",
+    "tinybench": "6.2.0"
+  },
+  "packageManager": "yarn@4.18.0",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
