@@ -1,6 +1,6 @@
 {
   "name": "json-stringify-stable-replacer",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Stable JSON stringify.",
   "homepage": "https://github.com/fisker/json-stringify-stable-replacer#readme",
   "bugs": {
